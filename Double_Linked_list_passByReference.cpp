@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std ;
 
+// Double Linked List With Method Pass By Reference
+
 struct node {
     node *prev;
     int data;

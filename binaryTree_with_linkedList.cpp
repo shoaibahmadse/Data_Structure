@@ -74,7 +74,7 @@ bstNode* addToEmpty(int data){
     return temp;
 }
 
-// insert data in asscending order in bst
+// insert data in asscending order to binary Search Tree
 bstNode* insert(bstNode* root,int data){
     if(root == NULL){
         root = addToEmpty(data);
@@ -87,13 +87,17 @@ bstNode* insert(bstNode* root,int data){
     return root;
 }
 
-// search data in bst
+// search data in binary search tree
 bool search(bstNode* root,int data){
     if(root == NULL) return false;
     else if(root->data == data) return true;
     else if(data <= root->data) return search(root->left,data);
     else return search(root->right,data);
 }
+
+// Two Method Of Traversal a Binary Tree
+// 1. Breath-first
+// 2. Depth-first (in depth we have preOrder,inOrderand postOrder Method)
 
 // display data by breath-first
 void levelOrder(bstNode* root){
@@ -151,6 +155,52 @@ bool isBinarySearchTree(bstNode *root){
     )return true;
     else return false;
 }
+
+// FindMin of Binary Search Tree With Recursion Method
+int FindMin(bstNode* root){
+    if(root == NULL){
+        cout << "Tree Is Empty";return -1;
+    }else if (root->left == NULL){
+        return root->data;
+    }
+    return FindMin(root->left);
+}
+
+// FindMin of Binary Search Tree With Iterative Method
+// int FindMin(bstNode* root){
+//     bstNode* ptr = root;
+//     if(ptr==NULL){
+//         cout << "Tree is Empty";return -1;
+//     }
+//     while (ptr->left != NULL)
+//         ptr = ptr->left;
+
+//     return ptr->data;
+// }
+
+// FindMax of Binary Search Tree With Recursion Method
+int FindMax(bstNode* root){                             
+    if(root == NULL){                                  
+        cout << "Tree Is Empty";return -1;              
+    }                                                  
+    else if (root->right == NULL){                      
+        return root->data;                              
+    }                                                   
+    return FindMax(root->right);                        
+}                      
+
+// FindMin of Binary Search Tree With Iterative Method
+// int FindMax(bstNode* root){
+//     bstNode* ptr = root;
+//     if(ptr==NULL){
+//         cout << "Tree is Empty";return -1;
+//     }
+//     while (ptr->right != NULL)
+//         ptr = ptr->right;
+
+//     return ptr->data;
+// }
+
 
 int main(){
     root = insert(root,15);

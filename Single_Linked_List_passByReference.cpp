@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std ;
 
-// With Struct Linked List
+// Single Linked List With Method Pass By Reference
 
 struct node {
     int data;
